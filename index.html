@@ -3,86 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Energy — Галерея</title>
+  <meta name="description" content="Alex Energy — встановлення сонячних електростанцій у Кропивницькому та області. Сонячні панелі, інвертори Deye, підключення до зеленого тарифу та підтримка." />
+  <meta name="keywords" content="сонячні панелі, зелений тариф, Кропивницький, Deye, сонячні електростанції, альтернативна енергетика, Alex Energy" />
+  <title>Alex Energy — Сонячні електростанції Кропивницький</title>
   <style>
-    body {
-      background-color: #d1e7dd;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .slider {
-      max-width: 90%;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 20px;
-    }
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .slide {
-      min-width: 100%;
-      box-sizing: border-box;
-    }
-    .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .buttons {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .buttons button {
-      background-color: #2e7d32;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-      margin: 0 10px;
-    }
+    body { font-family: 'Poppins', sans-serif; background-color: #d1e7dd; color: #333; margin: 0; }
+    header { background: #2e7d32; color: white; text-align: center; padding: 30px 20px; }
+    nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; }
+    .hero { text-align: center; padding: 50px 20px; }
+    .hero h1 { font-size: 36px; color: #2e7d32; }
+    .hero p { font-size: 20px; }
+    .services { padding: 30px 20px; max-width: 900px; margin: auto; }
+    .services ul { font-size: 18px; }
+    .carousel { display: flex; overflow-x: auto; gap: 20px; padding: 30px 20px; scroll-snap-type: x mandatory; }
+    .carousel img { height: 300px; border-radius: 12px; scroll-snap-align: center; }
+    .button-contact { display: block; margin: 20px auto; padding: 10px 30px; background: #2e7d32; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
+    footer { background: #2e7d32; color: white; text-align: center; padding: 10px; font-size: 14px; }
   </style>
 </head>
 <body>
-  <section class="slider">
-    <div class="slider-track" id="track">
-      <div class="slide"><img src="review1.jpg" alt="Фото 1"></div>
-      <div class="slide"><img src="review2.jpg" alt="Фото 2"></div>
-      <div class="slide"><img src="review3.jpg" alt="Фото 3"></div>
-      <div class="slide"><img src="review4.jpg" alt="Фото 4"></div>
-      <div class="slide"><img src="review5.jpg" alt="Фото 5"></div>
-      <div class="slide"><img src="review6.jpg" alt="Фото 6"></div>
-      <div class="slide"><img src="review7.jpg" alt="Фото 7"></div>
-      <div class="slide"><img src="review8.jpg" alt="Фото 8"></div>
-      <div class="slide"><img src="review9.jpg" alt="Фото 9"></div>
-      <div class="slide"><img src="review10.jpg" alt="Фото 10"></div>
-    </div>
+  <header>
+    <img src="favicon.ico" alt="Лампочка" style="height: 30px; vertical-align: middle; margin: 10px;">
+    <nav>
+      <a href="about.html">Про нас</a>
+      <a href="services.html">Послуги</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <h1>Сонячна енергія для вашого дому та бізнесу</h1>
+    <p>Кропивницький та область</p>
   </section>
-  <div class="buttons">
-    <button onclick="prevSlide()">Назад</button>
-    <button onclick="nextSlide()">Вперед</button>
-  </div>
-  <script>
-    let currentIndex = 0;
-    const track = document.getElementById('track');
-    const slides = document.querySelectorAll('.slide');
+  <section class="services">
+    <h2>Наші послуги</h2>
+    <ul>
+      <li>Встановлення сонячних станцій «під ключ»</li>
+      <li>Обладнання перевірених виробників ( зокрема інвертори <strong>Deye</strong> )</li>
+      <li>Підключення до зеленого тарифу</li>
+      <li>Постійна підтримка та консультації</li>
+    </ul>
+    <p>Ми допомагаємо перетворити сонячне світло на вигідну інвестицію. Працюємо чесно, з любов'ю до справи.</p>
+  </section>
 
-    function updateSlider() {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+  <section class="carousel">
+    <img src="review1.jpg" alt="Відгук 1">
+    <img src="review2.jpg" alt="Відгук 2">
+    <img src="review3.jpg" alt="Відгук 3">
+    <img src="review4.jpg" alt="Відгук 4">
+    <img src="review5.jpg" alt="Відгук 5">
+    <img src="review6.jpg" alt="Відгук 6">
+    <img src="review7.jpg" alt="Відгук 7">
+    <img src="review8.jpg" alt="Відгук 8">
+    <img src="review9.jpg" alt="Відгук 9">
+    <img src="review10.jpg" alt="Відгук 10">
+  </section>
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlider();
-    }
+  <button class="button-contact" onclick="window.location.href='contact.html'">Зв'яжіться з нами</button>
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlider();
-    }
-  </script>
+  <footer>
+    &copy; 2025 Alex Energy. Всі права захищено.
+  </footer>
 </body>
 </html>
