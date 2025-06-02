@@ -7,26 +7,66 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
-            padding: 20px;
+            padding: 30px;
+            background-color: #e7f9e7;
         }
-        input, label, button {
+        h1, h2 {
+            text-align: center;
+            color: #2e7d32;
+        }
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+        input, button {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #388e3c;
         }
         #result {
             margin-top: 20px;
-            padding: 15px;
+            padding: 20px;
             border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .info {
+            font-size: 14px;
+            color: #333;
+            background: #d0f0d0;
+            padding: 10px;
+            border-left: 4px solid #4caf50;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Калькулятор окупності сонячної електростанції</h1>
+    <h1>Калькулятор окупності</h1>
+    <h2>Розрахуйте ефективність вашої сонячної електростанції</h2>
+
+    <div class="info">
+        Щоб отримати точний розрахунок, введіть:
+        <ul>
+            <li><strong>Місячне споживання:</strong> в середньому українські родини використовують 300–600 кВт·год</li>
+            <li><strong>Тариф на електроенергію:</strong> перевірте у своєму договорі або використовуйте приблизно 3.3 грн/кВт·год</li>
+            <li><strong>Вартість СЕС:</strong> вартість типового комплекту на 10 кВт — від 280 000 грн</li>
+            <li><strong>Потужність СЕС:</strong> наприклад, 10 кВт для середнього приватного будинку</li>
+        </ul>
+    </div>
 
     <label for="consumption">Місячне споживання електроенергії (кВт·год):</label>
     <input type="number" id="consumption" value="500">
@@ -40,7 +80,7 @@
     <label for="power">Потужність станції (кВт):</label>
     <input type="number" id="power" value="10">
 
-    <button onclick="calculatePayback()">Розрахувати</button>
+    <button onclick="calculatePayback()">Розрахувати окупність</button>
 
     <div id="result"></div>
 
