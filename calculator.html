@@ -132,9 +132,10 @@
                 <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong>`;
 
             document.getElementById('contactButton').style.display = 'block';
-            gtag('event', 'calculator_used', {
-  'event_category': 'Калькулятор',
-  'event_label': 'Окупність СЕС'
+               gtag('event', 'calculator_used', {
+            'event_category': 'Калькулятор',
+            'event_label': 'Окупність СЕС',
+            'value': Math.round(paybackYears * 100) / 100
 });
 
         }
