@@ -44,6 +44,23 @@
             background-color: #ffffff;
             border-radius: 5px;
         }
+        #contactButton {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #contactButton a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        #contactButton a:hover {
+            background-color: #1b5e20;
+        }
         .info {
             font-size: 14px;
             color: #333;
@@ -83,6 +100,9 @@
     <button onclick="calculatePayback()">Розрахувати окупність</button>
 
     <div id="result"></div>
+    <div id="contactButton">
+        <a href="contact.html">Зв'язатися з нами</a>
+    </div>
 
     <script>
         function calculatePayback() {
@@ -99,12 +119,9 @@
                 `<strong>Результат:</strong><br>
                 Станція потужністю ${power} кВт згенерує ≈ ${generationPerYear.toFixed(0)} кВт·год/рік.<br>
                 Щорічна економія: ${annualSaving.toFixed(2)} грн.<br>
-                <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong><br>
-                <em>Зачекайте, вас перенаправить до заявки...</em>`;
+                <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong>`;
 
-            setTimeout(() => {
-                window.location.href = "contact.html";
-            }, 5000); // 5 секунд
+            document.getElementById('contactButton').style.display = 'block';
         }
     </script>
 </body>
