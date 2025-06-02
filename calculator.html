@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор окупності СЕС</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        input, label, button {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор окупності сонячної електростанції</h1>
+
+    <label for="consumption">Місячне споживання електроенергії (кВт·год):</label>
+    <input type="number" id="consumption" value="500">
+
+    <label for="tariff">Тариф на електроенергію (грн/кВт·год):</label>
+    <input type="number" id="tariff" step="0.01" value="3.3">
+
+    <label for="cost">Орієнтовна вартість СЕС (грн):</label>
+    <input type="number" id="cost" value="280000">
+
+    <label for="power">Потужність станції (кВт):</label>
+    <input type="number" id="power" value="10">
+
+    <button onclick="calculatePayback()">Розрахувати</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculatePayback() {
+            const consumption = parseFloat(document.getElementById('consumption').value);
+            const tariff = parseFloat(document.getElementById('tariff').value);
+            const cost = parseFloat(document.getElementById('cost').value);
+            const power = parseFloat(document.getElementById('power').value);
+
+            const generationPerYear = power * 1200; // середній показник для Кропивницького
+            const annualSaving = generationPerYear * tariff;
+            const paybackYears = cost / annualSaving;
+
+            document.getElementById('result').innerHTML =
+                `<strong>Результат:</strong><br>
+                Станція потужністю ${power} кВт згенерує ≈ ${generationPerYear.toFixed(0)} кВт·год/рік.<br>
+                Щорічна економія: ${annualSaving.toFixed(2)} грн.<br>
+                <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong>`;
+        }
+    </script>
+</body>
+</html>
