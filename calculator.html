@@ -91,7 +91,7 @@
             const cost = parseFloat(document.getElementById('cost').value);
             const power = parseFloat(document.getElementById('power').value);
 
-            const generationPerYear = power * 1200; // середній показник для Кропивницького
+            const generationPerYear = power * 1200;
             const annualSaving = generationPerYear * tariff;
             const paybackYears = cost / annualSaving;
 
@@ -99,7 +99,12 @@
                 `<strong>Результат:</strong><br>
                 Станція потужністю ${power} кВт згенерує ≈ ${generationPerYear.toFixed(0)} кВт·год/рік.<br>
                 Щорічна економія: ${annualSaving.toFixed(2)} грн.<br>
-                <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong>`;
+                <strong>Окупність: ${paybackYears.toFixed(1)} років.</strong><br>
+                <em>Зачекайте, вас перенаправить до заявки...</em>`;
+
+            setTimeout(() => {
+                window.location.href = "contact.html";
+            }, 5000); // 5 секунд
         }
     </script>
 </body>
